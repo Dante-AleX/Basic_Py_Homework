@@ -11,5 +11,5 @@ def create_dict(**kwargs):
         result_dict[value] = key
     return result_dict
 
-result = create_dict(a=word, b='hello', c=True, d=3.14)
+result = create_dict(a=42, b='hello', c=True, d=3.14)
 print(result)
