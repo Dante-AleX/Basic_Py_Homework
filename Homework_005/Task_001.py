@@ -2,19 +2,15 @@
 # абсолютный путь до файла. Функция возвращает кортеж из трёх 
 # элементов: путь, имя файла, расширение файла.
 
-file_abs = r"D:\Documents\CV - Eng"
+import os
 
-def path_name(file_path):
-    full_file_name = file_path.split('\\')[-1]
-    full_path = file_path.rsplit(full_file_name, 1)[0]
-    
-    if '.' in full_file_name:
-        filename, exten_file = full_file_name.rsplit('.', 1)
-    else:
-        filename = full_file_name
-        exten_file = ''
-    
-    return (full_path, filename, exten_file)
+def parse_file_path(file_path):
+    path = os.path.dirname(file_path)
+    filename = os.path.basename(file_path)
+    filename, extension = os.path.splitext(filename)
+    return path, filename, extension
 
-res_out = path_name(file_abs)
-print(res_out)
+file_abs = r"D:\Documents\CV - Eng\example.txt"
+result = parse_file_path(file_abs)
+print(result)
+
